@@ -1,0 +1,366 @@
+
+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS
+    -> ORDER BY PRODUCTID DESC
+    -> LIMIT 2,5;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         8 | ABC     |  9500 |   70 |        1 |
+|         7 | XYZ     |  8000 |   50 |       60 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
+|         4 | HARRYNO |  2500 |    1 |       50 |
++-----------+---------+-------+------+----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS
+    -> ORDER BY PRODUCTID DESC
+    -> LIMIT 5;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|        10 | MNO     |  9999 |   99 |       19 |
+|         9 | LMN     |  1500 |   80 |        9 |
+|         8 | ABC     |  9500 |   70 |        1 |
+|         7 | XYZ     |  8000 |   50 |       60 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
++-----------+---------+-------+------+----------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT * FROM CONSUMERS
+    -> ORDER BY PRODUCTID DESC
+    -> LIMIT 9;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|        10 | MNO     |  9999 |   99 |       19 |
+|         9 | LMN     |  1500 |   80 |        9 |
+|         8 | ABC     |  9500 |   70 |        1 |
+|         7 | XYZ     |  8000 |   50 |       60 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
+|         4 | HARRYNO |  2500 |    1 |       50 |
+|         3 | ASHWINO |    50 |   18 |       25 |
+|         2 | HEMANTO |    10 |   25 |       15 |
++-----------+---------+-------+------+----------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS
+    -> ORDER BY NAME
+    -> LIMIT 3;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         1 |  JKL    |  5555 |  545 |       55 |
+|         8 | ABC     |  9500 |   70 |        1 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
++-----------+---------+-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS ORDER BY NAME ;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         1 |  JKL    |  5555 |  545 |       55 |
+|         8 | ABC     |  9500 |   70 |        1 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
+|         3 | ASHWINO |    50 |   18 |       25 |
+|         4 | HARRYNO |  2500 |    1 |       50 |
+|         2 | HEMANTO |    10 |   25 |       15 |
+|         9 | LMN     |  1500 |   80 |        9 |
+|        10 | MNO     |  9999 |   99 |       19 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
+|         1 | SHUBHAM |  2500 |    5 |       30 |
+|         7 | XYZ     |  8000 |   50 |       60 |
++-----------+---------+-------+------+----------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS ORDER BY NAME ASC ;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         1 |  JKL    |  5555 |  545 |       55 |
+|         8 | ABC     |  9500 |   70 |        1 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
+|         3 | ASHWINO |    50 |   18 |       25 |
+|         4 | HARRYNO |  2500 |    1 |       50 |
+|         2 | HEMANTO |    10 |   25 |       15 |
+|         9 | LMN     |  1500 |   80 |        9 |
+|        10 | MNO     |  9999 |   99 |       19 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
+|         1 | SHUBHAM |  2500 |    5 |       30 |
+|         7 | XYZ     |  8000 |   50 |       60 |
++-----------+---------+-------+------+----------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT LENGTH(NAME) FROM CONSUMERS WHERE DISCOUNT = 55;
++--------------+
+| LENGTH(NAME) |
++--------------+
+|            4 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS ORDER BY NAME ;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         1 |  JKL    |  5555 |  545 |       55 |
+|         8 | ABC     |  9500 |   70 |        1 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
+|         3 | ASHWINO |    50 |   18 |       25 |
+|         4 | HARRYNO |  2500 |    1 |       50 |
+|         2 | HEMANTO |    10 |   25 |       15 |
+|         9 | LMN     |  1500 |   80 |        9 |
+|        10 | MNO     |  9999 |   99 |       19 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
+|         1 | SHUBHAM |  2500 |    5 |       30 |
+|         7 | XYZ     |  8000 |   50 |       60 |
++-----------+---------+-------+------+----------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS ORDER BY PRODUCTID;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         1 | SHUBHAM |  2500 |    5 |       30 |
+|         1 |  JKL    |  5555 |  545 |       55 |
+|         2 | HEMANTO |    10 |   25 |       15 |
+|         3 | ASHWINO |    50 |   18 |       25 |
+|         4 | HARRYNO |  2500 |    1 |       50 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
+|         7 | XYZ     |  8000 |   50 |       60 |
+|         8 | ABC     |  9500 |   70 |        1 |
+|         9 | LMN     |  1500 |   80 |        9 |
+|        10 | MNO     |  9999 |   99 |       19 |
++-----------+---------+-------+------+----------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS ORDER BY PRODUCTID LIMIT 2,5;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         2 | HEMANTO |    10 |   25 |       15 |
+|         3 | ASHWINO |    50 |   18 |       25 |
+|         4 | HARRYNO |  2500 |    1 |       50 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
++-----------+---------+-------+------+----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS ORDER BY PRODUCTID LIMIT 3;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         1 | SHUBHAM |  2500 |    5 |       30 |
+|         1 |  JKL    |  5555 |  545 |       55 |
+|         2 | HEMANTO |    10 |   25 |       15 |
++-----------+---------+-------+------+----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS ORDER BY PRODUCTID;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         1 | SHUBHAM |  2500 |    5 |       30 |
+|         1 |  JKL    |  5555 |  545 |       55 |
+|         2 | HEMANTO |    10 |   25 |       15 |
+|         3 | ASHWINO |    50 |   18 |       25 |
+|         4 | HARRYNO |  2500 |    1 |       50 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
+|         7 | XYZ     |  8000 |   50 |       60 |
+|         8 | ABC     |  9500 |   70 |        1 |
+|         9 | LMN     |  1500 |   80 |        9 |
+|        10 | MNO     |  9999 |   99 |       19 |
++-----------+---------+-------+------+----------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS ORDER BY PRODUCTID;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         1 | SHUBHAM |  2500 |    5 |       30 |
+|         1 |  JKL    |  5555 |  545 |       55 |
+|         2 | HEMANTO |    10 |   25 |       15 |
+|         3 | ASHWINO |    50 |   18 |       25 |
+|         4 | HARRYNO |  2500 |    1 |       50 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
+|         7 | XYZ     |  8000 |   50 |       60 |
+|         8 | ABC     |  9500 |   70 |        1 |
+|         9 | LMN     |  1500 |   80 |        9 |
+|        10 | MNO     |  9999 |   99 |       19 |
++-----------+---------+-------+------+----------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CONSUMERS ORDER BY PRODUCTID
+    -> SELECT * FROM CONSUMERS ORDER BY PRODUCTID LIMIT 9,5;
+
+mysql> SELECT * FROM CONSUMERS ORDER BY PRODUCTID LIMIT 9,5;
++-----------+------+-------+------+----------+
+| productID | NAME | PRICE | GST  | DISCOUNT |
++-----------+------+-------+------+----------+
+|         9 | LMN  |  1500 |   80 |        9 |
+|        10 | MNO  |  9999 |   99 |       19 |
++-----------+------+-------+------+----------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+mysql> CREATE TABLE DATETIME;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> CREATE TABLE DATETIME
+    -> (
+    -> A DATE,
+    -> B DATETIME,
+    -> C TIMESTAMP,
+    -> D TIME
+    -> );
+Query OK, 0 rows affected (0.14 sec)
+
+
+
+
+
+
+
+
+mysql> INSERT INTO DATETIME VALUES(NOW(),NOW(),NOW(),NOW());
+Query OK, 1 row affected, 1 warning (0.04 sec)
+
+mysql> SELECT *
+    -> FROM DATETIME;
++------------+---------------------+---------------------+----------+
+| A          | B                   | C                   | D        |
++------------+---------------------+---------------------+----------+
+| 2019-08-26 | 2019-08-26 21:38:56 | 2019-08-26 21:38:56 | 21:38:56 |
++------------+---------------------+---------------------+----------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+
+mysql> CREATE TABLE SPLDATATYPE
+    -> (
+    -> ID INT AUTO_INCREMENT PRIMARY KEY,
+    -> MEMBERSHIP ENUM ('SILVER','GOLD','PLATINUM' ),
+    -> HOBBIES SET('SWIMMING','SKIING','CRICKET','FOOTBALL'));
+Query OK, 0 rows affected (0.08 sec)
+
+1
+mysql> INSERT INTO SPLDATATYPE (MEMBERSHIP,HOBBIES) VALUES('SILVER','SKIING,FOOTBALL');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT * FROM SPLDATATYPE
+    -> ;
++----+------------+-----------------+
+| ID | MEMBERSHIP | HOBBIES         |
++----+------------+-----------------+
+|  1 | SILVER     | SKIING,FOOTBALL |
++----+------------+-----------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===========================================================================================
+mysql> CREATE TABLE SPLDATATYPE
+    -> (
+    -> ID INT AUTO_INCREMENT PRIMARY KEY,
+    -> MEMBERSHIP ENUM ('SILVER','GOLD','PLATINUM' ),
+    -> HOBBIES SET('SWIMMING','SKIING','CRICKET','FOOTBALL'));
+
+
+mysql> INSERT INTO SPLDATATYPE (MEMBERSHIP,HOBBIES) VALUES('SILVER','SKIING,FOOTBALL');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT * FROM SPLDATATYPE
+    -> ;
++----+------------+-----------------+
+| ID | MEMBERSHIP | HOBBIES         |
++----+------------+-----------------+
+|  1 | SILVER     | SKIING,FOOTBALL |
++----+------------+-----------------+
+1 row in set (0.00 sec)
+
+
+=========================================================================
+
+
+
+mysql> CREATE TABLE DATETIME
+    -> (
+    -> A DATE,
+    -> B DATETIME,
+    -> C TIMESTAMP,
+    -> D TIME
+    -> );
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> INSERT INTO VALUES(CURRENT_DATE(),NOW(),NOW(),NOW());
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUES(CURRENT_DATE(
+),NOW(),NOW(),NOW())' at line 1
+mysql> INSERT INTO VALUES(NOW(),NOW(),NOW(),NOW());
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VALUES(NOW(),NOW(),N
+OW(),NOW())' at line 1
+mysql> INSERT INTO DATETIME VALUES(NOW(),NOW(),NOW(),NOW());
+Query OK, 1 row affected, 1 warning (0.04 sec)
+
+mysql> SELECT *
+    -> FROM DATETIME;
++------------+---------------------+---------------------+----------+
+| A          | B                   | C                   | D        |
++------------+---------------------+---------------------+----------+
+| 2019-08-26 | 2019-08-26 21:38:56 | 2019-08-26 21:38:56 | 21:38:56 |
++------------+---------------------+---------------------+----------+
+1 row in set (0.00 sec)
+
+
+=======================================================================================
