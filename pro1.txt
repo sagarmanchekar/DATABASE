@@ -1,0 +1,1037 @@
+//sum of 10 nos------------
+
+#include<stdio.h>
+int main()
+{
+	int a,sum=0,i;
+printf("enter 10 nos:");
+
+for(i=1;i<=10;i++)
+{
+	scanf("%d",&a);
+	sum=sum+a;
+}
+printf("sum is %d",sum);
+getch();
+return 0;
+}
+
+
+
+
+
+-----------------------------------------------------------
+spatial no
+
+
+
+
+#include<stdio.h>
+int main()
+	int fact (int);
+int spatial (int);
+{
+	int no,s;
+	printf("enter no");
+	scanf("%d",&no);
+	s=spatial(no);
+	if(s=1)
+		printf("spatial");
+	else
+		printf("not");
+
+getch();
+return 0;
+}
+int spatial (int no)
+{
+	int s,r,sum=0;
+	s=no;
+	while (no!=0)
+	{
+		r=no%10;sum=sum+fact(r);
+		s=s/10;
+	}
+	if(no==sum)
+		return 1;
+	return 0;
+}
+
+
+
+--------------------------------------------------------------
+ternary operator
+
+#include<stdio.h>
+int main()
+{
+	int a,b,c;
+	printf("enter 2 nos:");
+	scanf("%d %d",&a,&b);
+	a>b?(printf("%d is gretaest",a)) : (printf("%d is greatest",b));
+	getch();
+	return 0;
+}
+
+
+---------------------------------------------------------------------------------
+
+ternary operator ----greatest of 3 nos
+
+
+#include<stdio.h>
+int main()
+{
+	int a,b,c;
+	printf("enter 3 nos:");
+	scanf("%d %d %d",&a,&b,&c);
+	a>b?(a>c?printf("a is greatest"):printf("c is gretaest")):(b>c?printf("b is gretaest"):printf("c is greatest"));
+	getch();
+	return 0;
+}
+
+
+-----------------------------------------------------------------------------
+
+//square of no using function
+
+
+#include<stdio.h>
+int sqr(int);     //prototype and decalaration
+
+int main()
+{
+	int ans,n;
+
+printf("enter the no:");
+scanf("%d",&n);
+ans=sqr(n);                                                     //calling a function
+printf("square of nos:%d",ans);
+printf("\nsquare of nos:%d",sqr(25));                //directly providing value
+getch();
+return 0;
+}
+
+int sqr(int n)                                                       //function
+{   
+	return n*n;
+}
+ 
+---------------------------------------------------------------------------------------------------
+
+
+//highest of 10 nos
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{int max,i,a;
+   
+printf("enter nos:");
+scanf("%d",&max);
+for(i=1;i<10;i++)
+{
+scanf("%d",&a);
+if(max<a)
+	max=a;
+}
+
+printf("highest no is %d",max);
+getch();
+return 0;
+}
+
+=-------------------------------------
+	#include<stdio.h>
+#include<conio.h>
+int main()
+
+{
+	int max=0,i = 0,a,no,temp;
+
+printf("enter nos:");
+
+//r(i=1;i<=10;i++)
+
+while(scanf("%d",&no), i < 10){
+	i++;
+	if(max < no){
+		max = no;
+	}
+	else{
+		continue;
+	}
+	
+}
+printf("highest no is %d",max);
+getch();
+return 0;
+
+}
+
+
+==============================================================================================
+
+
+//table 
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{int n,i,t;
+printf("enter the num:");
+scanf("%d",&n);
+for(i=1;i<=10;i++)
+{	
+	t=n*i;
+printf("%d*%d=%d\n",n,i,t);
+}
+getch();
+return 0;
+}
+
+==================================================================================================
+
+
+//printing table till that no
+#include <stdio.h>
+#include <conio.h>
+int main ()
+{
+	int n,i,t,j;
+    printf("enter the num:");
+    scanf("%d",&n);
+	for(j=1;j<=n;j++)
+    {
+		for(i=1;i<=10;i++)
+      {	
+	    t=j*i;
+      printf("%d*%d=%d\n",j,i,t);
+      }
+		printf("\n");
+	}
+getch();
+return 0;
+}
+
+===============================================================================================================
+//table till no and display in row column
+
+#include <stdio.h>
+#include <conio.h>
+int main ()
+{
+	int n,i,t,j;
+    printf("enter the num:");
+    scanf("%d",&n);
+	for(i=1;i<=10;i++)
+    {
+		for(j=1;j<=n;j++)
+      {	
+	    t=j*i;
+      printf("%d*%d=%d",j,i,t);
+	  printf("\t");
+      }
+		printf("\n");
+	}
+getch();
+return 0;
+}
+
+=============================================================================================================
+//highest and 2 nd highest of 10 nos
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{int max,i,a,nmax,t=0;
+   
+printf("enter nos:");
+scanf("%d",&max);
+scanf("%d",&nmax);
+if(nmax>max)
+	t=nmax;
+nmax=max;
+max=t;
+
+for(i=1;i<9;i++)
+{
+scanf("%d",&t);
+if(max<t)
+{	nmax=max;
+max=t;
+}
+else if(nmax<t)
+	nmax=t;
+}
+
+printf("highest no is %d\n",max);
+printf("2 nd highest no is %d",nmax);
+getch();
+return 0;
+}
+
+=========================================================================================================
+//enter integer 1 to n report nos divisible by m as even or odd
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	int n,m,i;       //n is number   m is disisor
+	printf("enter no n&m & n>m");
+	scanf("%d%d",&n,&m);
+		if(m>n)
+			printf("n should be greater than m");
+		else
+		{
+			for(i=m;i<=n;i++)
+			{
+				if (i%m==0)
+				{
+					if(i%2==0)
+						printf("\n%d is even",i);
+					else
+						printf("\n%d is odd",i);
+				}
+			}
+
+		}
+		getch ();
+		return 0;
+
+}
+=================================================================================================================
+
+
+//pattern       1
+                // 12
+                 //123
+
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	int i,j,k,s;
+
+for(i=1;i<=3;i++)
+{
+
+for(j=1;j<=i;j++)
+{
+	printf("%d",j);
+}
+	printf("\n");
+}
+getch();
+return 0;
+}
+
+
+======================================================================================
+//pattern  1
+             //22
+           //  333	   
+
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{   int i,j;
+	for(i=1;i<=3;i++)
+	{
+	for(j=1;j<=i;j++)
+		{
+			printf("%d",i);
+	    }
+				printf("\n");
+	}
+	getch();
+	return 0;
+}
+
+
+======================================================================================
+
+
+//    1
+//  12
+//123
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	int i,s,j,k=1;
+for(i=1;i<=3;i++)
+{
+for(s=i;s<=2;s++)
+	printf(" ");
+
+for(j=1;j<=i;j++)
+	printf("%d",j);
+
+printf("\n");
+}
+getch();
+return 0;
+}
+
+=======================================================================
+
+
+//pattern     1
+            // 121
+           // 12321
+
+
+#include<stdio.h>
+#include<conio.h>
+int main ()
+{
+	int i,j,k,s;
+	for(i=1;i<=3;i++)
+	{
+		for(s=i;s<=2;s++)
+		{
+			printf(" ");
+			
+
+		}
+	                                for(j=1;j<=i;j++)
+		{
+			printf("%d",j);
+	    }
+	for(k=i-1;k>=1;k--)
+	{	
+		printf("%d",k);
+
+	}	    printf("\n");
+	}
+getch();
+return 0;
+}
+
+
+
+============================================================================
+
+//pattern     0
+            //  101
+           //  21012
+          //  3210123
+
+
+#include<stdio.h>
+#include<conio.h>
+int main ()
+{
+	int i,j,k,s;
+	for(i=0;i<=3;i++)
+	{
+		for(s=i;s<3;s++)
+		{
+			printf(" ");
+		}
+	for(j=i;j>=0;j--)
+		{
+			printf("%d",j);
+	    }
+
+
+	for(k=1;k<=i;k++)
+	{	
+		printf("%d",k);
+
+	}
+	printf("\n");
+	}
+getch();
+return 0;
+} 
+
+===================================================================================
+
+O/P    ABCDEBCDECDEDEE
+         ABCDEBCDE
+
+
+
+
+
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	int i,j,k;
+	for(k=0;k<=4;k++)
+	{
+	for(j=0;j<=4-k;j++)
+	{
+	for(i=65+j;i<=69;i++)
+      printf("%c",i);
+	}
+	printf("\n");
+	}
+	getch();
+	return 0;
+}
+
+
+===========================================================================
+/*  1
+   121
+  12321
+ 1234321
+   121
+    1
+	*/
+
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	int i,j,s,r,m,k,n,x,y;
+    for(i=1;i<=4;i++)
+	{
+     for(s=i;s<4;s++)
+     printf(" ");
+	
+	 for(j=1;j<=i;j++)
+     printf("%d",j);
+	
+	 for(r=i-1;r>=1;r--)
+     printf("%d",r);
+	 printf("\n");
+	}
+
+
+
+	for(k=3;k>=1;k--)
+	{
+		 for(n=k;n<=3;n++)
+         printf(" ");
+	
+		 for(m=1;m<=k;m++)
+	   	printf("%d",m);
+	
+		 for(y=k-1;y>=1;y--)
+		 {
+         printf("%d",y);  
+	     }
+		printf("\n");
+	}
+	
+    getch();
+	return 0;
+}
+
+=======================================================================================
+
+
+//recursive call   1 to 5
+
+#include<stdio.h>
+#include<conio.h>
+void call(int n)             //function definition
+{if (n==1)
+    return;
+--n;
+call(n);                    //recursive call	
+printf("%d",n);
+
+}
+
+
+int main()
+{
+	int no =6;
+	call(no);                    // call function
+	getch();
+	return 0;
+}
+
+
+output   12345
+======================================================================================
+
+//recursive binary
+#include <stdio.h>
+#include <conio.h>
+	void binary (int n)
+
+{
+	int bin;
+	if (n<=0)
+		return ;
+	else
+	{
+		bin=n%2;
+		binary (n/2);
+		printf("%d",bin);
+	}
+
+}
+
+int main ()
+{
+	int no;
+	printf ("enter no");
+	scanf("%d",&no);
+	binary (no);
+	getch();
+	return 0;
+ 
+}
+ 
+
+input  10
+output in binary   1010
+
+=================================================================================================================================
+//binary 
+
+#include<stdio.h>
+#include<conio.h>
+int binary(int n);                //prototype declaration
+void main()
+{   int n,s;
+	printf("enter the number:");
+	scanf("%d",&n);
+
+	s=binary (n);                            //calling
+		printf("binary number %d:",s);
+	getch();
+	return 0;
+}
+
+int binary(int n)             //function defination
+{  
+	if(n/2==0)
+		return 1;
+	else
+	return binary (n/2)*10+n%2;
+}
+
+
+
+                  input 10
+	output 1010
+
+
+====================================================================================================================
+
+//fibonacii using recursive function
+
+#include<stdio.h>
+#include<conio.h>
+void fib(int n);
+
+void main()
+{
+	int n;
+	void fibo(n);
+	printf("enter the no of terms in fibonacci series:");
+		scanf("%d",&n);
+		if(n==0)
+			printf("enter the valid no");
+	    if(n==1)
+			printf("0");
+		if(n==2)
+			printf("0\t1");
+		else
+		{printf("0 \t 1");
+		fib(n);       //calling a function
+		}
+		getch();
+		return 0;
+}
+
+void fib(int n)
+{
+static int x=0,y=1;
+	int c;
+	c=x+y;
+	printf("\t %d",c);
+	x=y;
+	y=c;
+	n--;
+	if(n>2)
+		fib(n);
+}
+
+
+                 input 5
+	output 0 1 1 2 3 
+============================================================================================================================================
+
+//addition of 2 arrays
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+
+	int a[10],b[10],c[10];
+	int i,j;
+	printf("enter 5 numbers:");
+	for(i=0;i<=4;i++)
+		scanf("%d",&a[i]);
+
+	printf("enter 5 numbers:");
+	for(i=0;i<=4;i++)
+		scanf("%d",&b[i]);
+	for(i=0;i<=4;i++)
+	{
+		c[i]=a[i]+b[i];
+		printf("adition of 2 arrays is %d\n",c[i]);
+	}
+	
+
+	getch();
+	return 0;
+}
+
+
+==============================================================
+
+//highest in array using function
+
+#include<stdio.h>
+#include<conio.h>
+int get_max(int a[]);             //prototypr declaration
+int main()
+{
+	int a[5],b[5],i,max;
+
+	printf("enter 5 nos:");
+
+	for(i=0;i<=4;i++)
+		scanf("%d",&a[i]);
+	max=get_max(a);                               //call
+
+	printf("highest no. is: %d",max);
+	getch();
+	return 0;
+}
+
+int get_max(int a[])                           //function defn
+	{int i;
+		int max=a[0];
+	for(i=1;i<5;i++)
+{		if(a[i]>max)
+			max=a[i];
+}
+	
+	return max;
+	
+}
+
+
+=============================================================
+
+
+//square of arrays
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{
+
+	int a[5],c[5];
+	int i,j;
+	printf("enter 5 numbers:");
+	for(i=0;i<=4;i++)
+		scanf("%d",&a[i]);
+
+
+	for(i=0;i<=4;i++)
+	{
+		c[i]=a[i]*a[i];
+		printf("square of array is %d\n",c[i]);
+	}
+	
+
+	getch();
+	return 0;
+}
+
+======================================================================
+
+//accept array and print even no:
+
+#include <stdio.h>
+#include <conio.h>
+int main()
+{
+	int i,n,a[5],b[5],j=0;
+	printf ("enter no:");
+	for(i=0;i<=4;i++)
+	{
+	scanf("%d",&a[i]);
+	}
+	 
+  for(i=0;i<=4;i++)
+	{if(a[i]%2==0)
+		{  b[j]=a[i];
+			printf("even no is %d\n",b[j]);
+			j++;
+         }
+  }
+	getch();
+	return 0;
+
+}
+
+============================================================================
+//left shift
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	int a[5],i,temp;
+	printf("enter the nos:");
+	for(i=0;i<=4;i++)
+		scanf("%d",&a[i]);
+	temp=a[0];
+	for(i=0;i<=3;i++)
+		a[i]=a[i+1];
+	a[4]=temp;
+	for(i=0;i<=4;i++)
+	printf("%d",a[i]);
+	getch();
+	return 0;
+}
+=================================================================================
+
+
+//string
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{ 
+	char ch[200],b[200];
+		int i;
+	puts("enter the name");      //vidya 
+	 gets(ch);                
+	                      
+puts("enter the surname");      // nidhi
+	 gets(b); 	
+        
+	i=strlen(ch);                   //lenght of ch(vidya)
+printf("%d",i);                     //5
+	strcpy(b,ch);                //b=vidya
+  puts(b);	                      
+	strncat(ch,b,9);   
+	puts(ch);                 //vidyavidya
+	                     //                  
+//printf("%d\n",i);
+	//puts(b);
+	
+	getch();
+	return 0;
+}
+
+=====================================
+//3*3 matrix
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	char a[3][3];
+	int i,j;
+	for(i=0;i<3;i++)   
+	{
+    for(j=0;j<3;j++)          
+    {
+	printf("enter the nos");
+    scanf("%d",&a[i][j]);
+	}
+	}
+		for(i=0;i<3;i++)       
+       {		
+	       for(j=0;j<3;j++)
+	      {
+			  printf("%d",a[i][j]);
+		   }   
+		printf("\n");
+		}
+		getch ();
+		return 0;
+}
+
+//output
+123
+456
+789
+
+======================================================================
+
+//transpose of matrix
+
+
+#include<stdio.h>
+#include<conio.h>
+int main()
+{
+	char a[3][3];
+	int i,j;
+	for(i=0;i<3;i++)   
+	{
+    for(j=0;j<3;j++)          
+    {
+	printf("enter the nos");
+    scanf("%d",&a[i][j]);
+	}
+	}
+	for(i=0;i<3;i++)                //original matrix
+       {		
+	       for(j=0;j<3;j++)
+	      {
+			  printf("%d",a[i][j]);
+		   }   
+		printf("\n");
+		}
+	printf("\n");
+	 //transpose matrix
+	printf("transpose matrix:");
+	printf("\n");
+		for(i=0;i<3;i++)              
+       {		
+	       for(j=0;j<3;j++)
+	      {   
+			  printf("%d",a[j][i]);
+		   }   
+		printf("\n");
+		}
+		getch ();
+		return 0;
+}
+input
+123
+456
+789
+output  transose of matrix  147
+                                        258                                      
+                                       369                              
+                                             
+=======================================================================================================================
+
+
+//pallindrome 
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+void pallin(char[]);
+	int main()
+	{ 
+		char ch[50];
+		char ch1[50];
+		int i,l,j=0;
+	   
+	         printf("enter the string\n");
+		gets(ch);
+		
+		
+		l=strlen(ch);              //nitin dad
+                                   for(i=0;i<=l;i++)
+                   	   {
+	                       	 if(ch[i]!=' ' && ch[i]!='\0')
+		 {
+			ch1[j++]=ch[i];
+		 }
+		 else
+		 {
+			ch1[j]='\0';
+	                       pallin(ch1);           //call
+                                    	       j=0;
+		 }
+                             	   }
+		getch();
+                                               return 0;
+	                  }
+	 
+
+
+
+	
+void pallin(char a[])
+{
+	int l,i;
+                 int flag=0;              
+                 l=strlen(a);                         //nitin 5
+                for(i=0;i<l/2;i++)
+                {
+	if(a[i]!=a[l-1-i])
+	{
+	flag=1;
+                   break;
+	}
+}
+if(flag==0)
+puts(a);
+
+}
+
+================================================================================================
+//same char replace
+
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+int main()
+{char str[50],str1[5],str2[5],str3[50];
+int i,k,s;
+ static int j=0;                                                                                                                                                                                                                                                                                     
+printf("enter the string\n");
+gets(str);
+printf("letter to be replaced\n");
+gets(str1);
+printf("letter to be replaced by\n");
+gets(str2);
+
+for(i=0;str[i]!='\0';i++)
+	
+{ 
+                                              
+	if(str[i]!=str1[0])                //i!=i
+	{
+		str3[j]=str[i];
+    j++;
+	}
+	else if(str[i+1]!=str1[1])               //v!=v
+	{str3[j]=str[i];
+    j++;
+		
+	}  
+								           
+                                                             
+else{
+	for(s=0;str2[s]!='\0';s++)
+	{
+str3[j]=str2[s];
+j++;
+
+	}
+	i++;
+}
+}
+str3[j]='\0';
+
+printf("%s",str3);
+getch();
+return 0;
+
+}
+
+
+============================================================================================
+
+
