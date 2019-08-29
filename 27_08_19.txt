@@ -1,0 +1,521 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| akka               |
+| anuja              |
+| bookworm           |
+| dac2db             |
+| dac3b              |
+| dac3db             |
+| dept               |
+| java               |
+| mydb               |
+| mydemo             |
+| mydemoo            |
+| mysql              |
+| onlineshopping     |
+| rev                |
+| roheat             |
+| student            |
+| students           |
+| test               |
+| vita               |
++--------------------+
+
+
+mysql> show tables
+    -> ;
++----------------+
+| Tables_in_akka |
++----------------+
+| consumers      |
+| datetime       |
+| numdatatype    |
+| spldatatype    |
++----------------+
+
+
+
+mysql> select*
+    -> from consumers;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         1 | SHUBHAM |  2500 |    5 |       30 |
+|         2 | HEMANTO |    10 |   25 |       15 |
+|         3 | ASHWINO |    50 |   18 |       25 |
+|         4 | HARRYNO |  2500 |    1 |       50 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
+|         7 | XYZ     |  8000 |   50 |       60 |
+|         8 | ABC     |  9500 |   70 |        1 |
+|         9 | LMN     |  1500 |   80 |        9 |
+|        10 | MNO     |  9999 |   99 |       19 |
+|         1 |  JKL    |  5555 |  545 |       55 |
++-----------+---------+-------+------+----------+
+11 rows in set (0.01 sec)
+
+
+ne 1
+mysql> CREATE TABLE MEMBER
+    (MEMBERID INT AUTO_INCREMENT PRIMARY KEY,FNAME VARCHAR(20) NOT NULL,
+     MNAME VARCHAR(20),LNAME VARCHAR(20) NOT NULL,
+     MEM_DOB DATE,
+     PHONE CHAR(10),
+     MEM_TYPE ENUM ('REGULAR','SILVER','GOLD','PREMIUM'));
+
+ ALTER TABLE MEMBERS ADD COLUMN MEM_EMAIL VARCHAR(20);
+
+ INSERT INTO MEMBERS(FNAME, MNAME ,LNAME ,MEM_DOB ,PHONE  ,  MEM_TYPE,MEM_EMAIL  )
+VALUES
+ ('HEMANT','XX','LL',NOW(),   '9870492854','PREMIUM',' HEMANTXX@AKKA.COM');
+
+
+
+>  INSERT INTO MEMBERS(FNAME, MNAME ,LNAME ,MEM_DOB ,PHONE  ,  MEM_TYPE,MEM_EMAIL  )
+> VALUES
+>  ('SAGAR','YY','MM',NOW(),   '9999999954','GOLD',' SAGARMANC@KKA.COM');
+ OK, 1 row affected, 1 warning (0.03 sec)
+
+mysql>  INSERT INTO MEMBERS(FNAME, MNAME ,LNAME ,MEM_DOB ,PHONE  ,  MEM_TYPE,MEM_EMAIL  )
+    -> VALUES
+    ->  ('ASHWIN','ZZ','WW',NOW(),  '8779992854','SILVER',' ASHWINXX@AKKA.COM');
+Query OK, 1 row affected, 1 warning (0.05 sec)
+
+
+ysql>  INSERT INTO MEMBERS(FNAME, MNAME ,LNAME ,MEM_DOB ,PHONE  ,  MEM_TYPE,MEM_EMAIL  )
+   -> VALUES
+   ->  ('SHUBH','XY','MNM',NOW(),   '9999239954','GOLD',' SHUBHAM@KKA.COM');
+uery OK, 1 row affected, 1 warning (0.03 sec)
+
+
+
+
+mysql> SELECT *
+    -> FROM MEMBERS;
++----------+--------+-------+-------+------------+------------+----------+--------------------+
+| MEMBERID | FNAME  | MNAME | LNAME | MEM_DOB    | PHONE      | MEM_TYPE | MEM_EMAIL          |
++----------+--------+-------+-------+------------+------------+----------+--------------------+
+|        1 | HEMANT | XX    | LL    | 2019-08-27 | 9870492854 | PREMIUM  |  HEMANTXX@AKKA.COM |
+|        2 | SAGAR  | YY    | MM    | 2019-08-27 | 9999999954 | GOLD     |  SAGARMANC@KKA.COM |
+|        3 | ASHWIN | ZZ    | WW    | 2019-08-27 | 8779992854 | SILVER   |  ASHWINXX@AKKA.COM |
+|        4 | ROHIT  | WD    | RW    | 2019-08-27 | 9899798544 | SILVER   |  ROHITNXX@AKKA.COM |
+|        5 | SHUBH  | XY    | MNM   | 2019-08-27 | 9999239954 | GOLD     |  SHUBHAM@KKA.COM   |
++----------+--------+-------+-------+------------+------------+----------+--------------------+
+5 rows in set (0.00 sec)
+
+=========================================================================================================
+
+mysql> SELECT* FROM CONSUMERS
+    -> ;
++-----------+---------+-------+------+----------+
+| productID | NAME    | PRICE | GST  | DISCOUNT |
++-----------+---------+-------+------+----------+
+|         1 | SHUBHAM |  2500 |    5 |       30 |
+|         2 | HEMANTO |    10 |   25 |       15 |
+|         3 | ASHWINO |    50 |   18 |       25 |
+|         4 | HARRYNO |  2500 |    1 |       50 |
+|         5 | ANIKETO |  1000 |    8 |     10.5 |
+|         6 | ROHEATO |  3000 |  100 |        5 |
+|         7 | XYZ     |  8000 |   50 |       60 |
+|         8 | ABC     |  9500 |   70 |        1 |
+|         9 | LMN     |  1500 |   80 |        9 |
+|        10 | MNO     |  9999 |   99 |       19 |
+|         1 |  JKL    |  5555 |  545 |       55 |
++-----------+---------+-------+------+----------+
+11 rows in set (0.00 sec)
+
+
+
+mysql> SELECT NAME
+    -> FROM CONSUMERS
+    -> WHERE PRODUCTID =1;
++---------+
+| NAME    |
++---------+
+| SHUBHAM |
+|  JKL    |
++---------+
+2 rows in set (0.00 sec)
+
+
+
+
+mysql> SELECT NAME,PRICE
+    -> FROM CONSUMERS
+    -> WHERE PRICE <5000;
++---------+-------+
+| NAME    | PRICE |
++---------+-------+
+| SHUBHAM |  2500 |
+| HEMANTO |    10 |
+| ASHWINO |    50 |
+| HARRYNO |  2500 |
+| ANIKETO |  1000 |
+| ROHEATO |  3000 |
+| LMN     |  1500 |
++---------+-------+
+7 rows in set (0.00 sec)
+
+mysql>
+
+mysql> SELECT NAME ,PRICE
+    -> FROM CONSUMERS
+    -> WHERE PRICE>1000 AND PRICE<5000;
++---------+-------+
+| NAME    | PRICE |
++---------+-------+
+| SHUBHAM |  2500 |
+| HARRYNO |  2500 |
+| ROHEATO |  3000 |
+| LMN     |  1500 |
++---------+-------+
+4 rows in set (0.00 sec)
+
+mysql>
+
+
+
+mysql> SELECT NAME ,PRICE
+    -> FROM CONSUMERS
+    -> WHERE PRICE*.10<100;
++---------+-------+
+| NAME    | PRICE |
++---------+-------+
+| HEMANTO |    10 |
+| ASHWINO |    50 |
++---------+-------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
+mysql> SELECT NAME ,PRICE
+    -> FROM CONSUMERS
+    -> WHERE NAME LIKE 'S%';
++---------+-------+
+| NAME    | PRICE |
++---------+-------+
+| SHUBHAM |  2500 |
++---------+-------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+mysql> SELECT NAME ,PRICE
+    -> FROM CONSUMERS
+    -> WHERE NAME LIKE'%TO%';
++---------+-------+
+| NAME    | PRICE |
++---------+-------+
+| HEMANTO |    10 |
+| ANIKETO |  1000 |
+| ROHEATO |  3000 |
++---------+-------+
+3 rows in set (0.00 sec)
+
+
+
+mysql> SELECT NAME ,PRICE
+    -> FROM CONSUMERS
+    -> WHERE NAME LIKE '%O';
++---------+-------+
+| NAME    | PRICE |
++---------+-------+
+| HEMANTO |    10 |
+| ASHWINO |    50 |
+| HARRYNO |  2500 |
+| ANIKETO |  1000 |
+| ROHEATO |  3000 |
+| MNO     |  9999 |
++---------+-------+
+
+
+
+mysql> SELECT NAME,PRICE,DISCOUNT
+    -> FROM CONSUMERS
+    -> WHERE NAME LIKE'_______';
++---------+-------+----------+
+| NAME    | PRICE | DISCOUNT |
++---------+-------+----------+
+| SHUBHAM |  2500 |       30 |
+| HEMANTO |    10 |       15 |
+| ASHWINO |    50 |       25 |
+| HARRYNO |  2500 |       50 |
+| ANIKETO |  1000 |     10.5 |
+| ROHEATO |  3000 |        5 |
++---------+-------+----------+
+6 rows in set (0.00 sec)
+
+
+
+mysql> SELECT NAME,PRICE,DISCOUNT
+    -> FROM CONSUMERS
+    -> WHERE NAME LIKE 'S______';
++---------+-------+----------+
+| NAME    | PRICE | DISCOUNT |
++---------+-------+----------+
+| SHUBHAM |  2500 |       30 |
++---------+-------+----------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+
+
+mysql> SELECT LENGTH(NAME),NAME
+    -> FROM CONSUMERS
+    -> WHERE LENGTH(NAME)=7;
++--------------+---------+
+| LENGTH(NAME) | NAME    |
++--------------+---------+
+|            7 | SHUBHAM |
+|            7 | HEMANTO |
+|            7 | ASHWINO |
+|            7 | HARRYNO |
+|            7 | ANIKETO |
+|            7 | ROHEATO |
++--------------+---------+
+6 rows in set (0.00 sec)
+
+
+
+mysql> SELECT LENGTH(NAME),NAME
+    -> FROM CONSUMERS
+    -> WHERE LENGTH(NAME)=4;
++--------------+------+
+| LENGTH(NAME) | NAME |
++--------------+------+
+|            4 |  JKL |
++--------------+------+
+1 row in set (0.01 sec)
+
+
+
+mysql> SELECT NAME ,PRICE,PRODUCTID
+    -> FROM CONSUMERS
+    -> WHERE LENGTH(NAME) LIKE 7;
++---------+-------+-----------+
+| NAME    | PRICE | PRODUCTID |
++---------+-------+-----------+
+| SHUBHAM |  2500 |         1 |
+| HEMANTO |    10 |         2 |
+| ASHWINO |    50 |         3 |
+| HARRYNO |  2500 |         4 |
+| ANIKETO |  1000 |         5 |
+| ROHEATO |  3000 |         6 |
++---------+-------+-----------+
+
+
+
+mysql> SELECT NAME ,PRICE,PRODUCTID
+    -> FROM CONSUMERS
+    -> WHERE LENGTH(NAME) LIKE 7;
++---------+-------+-----------+
+| NAME    | PRICE | PRODUCTID |
++---------+-------+-----------+
+| SHUBHAM |  2500 |         1 |
+| HEMANTO |    10 |         2 |
+| ASHWINO |    50 |         3 |
+| HARRYNO |  2500 |         4 |
+| ANIKETO |  1000 |         5 |
+| ROHEATO |  3000 |         6 |
++---------+-------+-----------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+=============================================================
+mysql> CREATE TABLE BOOK
+    -> (
+    -> BOOKID INT AUTO_INCREMENT
+    -> PRIMARY KEY,
+    -> BOOKNAME VARCHAR(20) NOT NULL,
+    -> PRICE DECIMAL(6,2));
+Query OK, 0 rows affected (0.05 sec)
+mysql> INSERT INTO BOOK (BOOKNAME,PRICE) VALUES
+    -> ('JAVA',5000),('ANALOG',4000),('DTSP',400);
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *
+    -> FROM BOOK;
++--------+----------+---------+
+| BOOKID | BOOKNAME | PRICE   |
++--------+----------+---------+
+|      1 | JAVA     | 5000.00 |
+|      2 | ANALOG   | 4000.00 |
+|      3 | DTSP     |  400.00 |
++--------+----------+---------+
+3 rows in set (0.00 sec)
+
+
+
+===========================================
+mysql>  CREATE TABLE BOOKTRAN
+    ->  (
+    ->  TRANID INT AUTO_INCREMENT PRIMARY KEY,
+    ->  TRANDATE DATETIME
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> INSERT INTO BOOKTRAN (TRANDATE) VALUES
+    -> (NOW());
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT* FROM BOOKTRAN;
++--------+---------------------+
+| TRANID | TRANDATE            |
++--------+---------------------+
+|      1 | 2019-08-27 20:16:59 |
++--------+---------------------+
+1 row in set (0.00 sec)
+
+==============================================================
+mysql>
+mysql>  INSERT INTO MEMBER
+    ->  (FNAME,MNAME,LNAME,MEM_DOB,PHONE,MEM_TYPE,MEM_EMAIL)
+    ->  VALUES
+    ->  ('HEMANT','SSD','DSDSD',NOW(),'9876543210','PREMIUM','HEMANT@.COM');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+
+mysql>  INSERT INTO MEMBER
+    ->  (FNAME,MNAME,LNAME,MEM_DOB,PHONE,MEM_TYPE,MEM_EMAIL)
+    ->  VALUES
+    ->  ('ASHE','DSDF','DFDFE',NOW(),'1554543210','GOLD','ASHWIN@.COM'),
+    ->  ('ROHIT','EFEF','XXXXE',NOW(),'9870455610','SILVER ',' ASHWIN@.COM');
+Query OK, 2 rows affected, 2 warnings (0.03 sec)
+Records: 2  Duplicates: 0  Warnings: 2
+
+
+
+
+mysql> SELECT * FROM MEMBER;
++----------+--------+-------+-------+------------+------------+----------+--------------+
+| MEMBERID | FNAME  | MNAME | LNAME | MEM_DOB    | PHONE      | MEM_TYPE | MEM_EMAIL    |
++----------+--------+-------+-------+------------+------------+----------+--------------+
+|        1 | HEMANT | SSD   | DSDSD | 2019-08-27 | 9876543210 | PREMIUM  | HEMANT@.COM  |
+|        2 | ASHE   | DSDF  | DFDFE | 2019-08-27 | 1554543210 | GOLD     | ASHWIN@.COM  |
+|        3 | ROHIT  | EFEF  | XXXXE | 2019-08-27 | 9870455610 | SILVER   |  ASHWIN@.COM |
++----------+--------+-------+-------+------------+------------+----------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM BOOK;
++--------+----------+---------+--------+
+| BOOKID | BOOKNAME | PRICE   | AUTHOR |
++--------+----------+---------+--------+
+|      1 | JAVA     | 5000.00 | NULL   |
+|      2 | ANALOG   | 4000.00 | NULL   |
+|      3 | DTSP     |  400.00 | NULL   |
++--------+----------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM BOOKTRAN;
++--------+---------------------+--------------+
+| TRANID | TRANDATE            | AUTHOR       |
++--------+---------------------+--------------+
+|      1 | 2019-08-27 20:26:44 | NIRALI       |
+|      2 | 2019-08-27 20:26:44 |   KUMBHOJKAR |
+|      3 | 2019-08-27 20:29:17 | S CHAND      |
+|      4 | 2019-08-27 20:29:50 | KANITKAR     |
+|      5 | 2019-08-27 20:30:38 | SHUTKAR      |
++--------+---------------------+--------------+
+5 rows in set (0.00 sec)
+
+
+
+=========================================================================================================================
+
+ysql> CREATE TABLE  BOOKTRAN2
+   -> (
+   -> TRANID INT AUTO_INCREMENT PRIMARY KEY,
+   -> TRANDATE DATETIME,
+   -> BOOKID INT REFERENCES
+   -> BOOK(BOOKID),
+   -> MEMBERID INT,CONSTRAINT BOOKTRAN_MEMBERID_FK
+   -> FOREIGN KEY(MEMBERID)
+   -> REFERENCES MEMBER(MEMBERID)
+   -> );
+uery OK, 0 rows affected (0.08 sec)
+
+
+
+ysql> DESCRIBE BOOKTRAN2;
+----------+----------+------+-----+---------+----------------+
+ Field    | Type     | Null | Key | Default | Extra          |
+----------+----------+------+-----+---------+----------------+
+ TRANID   | int(11)  | NO   | PRI | NULL    | auto_increment |
+ TRANDATE | datetime | YES  |     | NULL    |                |
+ BOOKID   | int(11)  | YES  |     | NULL    |                |
+ MEMBERID | int(11)  | YES  | MUL | NULL    |                |
+----------+----------+------+-----+---------+----------------+
+ rows in set (0.00 sec)
+
+
+
+mysql> DESCRIBE MEMBER;
++-----------+-------------------------------------------+------+-----+---------+----------------+
+| Field     | Type                                      | Null | Key | Default | Extra          |
++-----------+-------------------------------------------+------+-----+---------+----------------+
+| MEMBERID  | int(11)                                   | NO   | PRI | NULL    | auto_increment |
+| FNAME     | varchar(20)                               | NO   |     | NULL    |                |
+| MNAME     | varchar(20)                               | YES  |     | NULL    |                |
+| LNAME     | varchar(20)                               | NO   |     | NULL    |                |
+| MEM_DOB   | date                                      | YES  |     | NULL    |                |
+| PHONE     | char(10)                                  | YES  |     | NULL    |                |
+| MEM_TYPE  | enum('REGULAR','SILVER','GOLD','PREMIUM') | YES  |     | NULL    |                |
+| MEM_EMAIL | varchar(20)                               | YES  |     | NULL    |                |
++-----------+-------------------------------------------+------+-----+---------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> DESCRIBE BOOK;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| BOOKID   | int(11)      | NO   | PRI | NULL    | auto_increment |
+| BOOKNAME | varchar(20)  | NO   |     | NULL    |                |
+| PRICE    | decimal(6,2) | YES  |     | NULL    |                |
+| AUTHOR   | varchar(20)  | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+mysql> INSERT INTO BOOKTRAN2
+    -> (TRANDATE,BOOKID,MEMBERID)
+    -> VALUES
+    -> (NOW(),4,1);
+Query OK, 1 row affected (0.02 sec)
+
+
+
+mysql> SELECT * FROM BOOKTRAN2;
++--------+---------------------+--------+----------+
+| TRANID | TRANDATE            | BOOKID | MEMBERID |
++--------+---------------------+--------+----------+
+|      1 | 2019-08-27 21:55:17 |      4 |        1 |
++--------+---------------------+--------+----------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO BOOKTRAN2
+    -> (TRANDATE,BOOKID,MEMBERID)
+    -> VALUES
+    -> (NOW(),1,2);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * FROM BOOKTRAN2;
++--------+---------------------+--------+----------+
+| TRANID | TRANDATE            | BOOKID | MEMBERID |
++--------+---------------------+--------+----------+
+|      1 | 2019-08-27 21:55:17 |      4 |        1 |
+|      3 | 2019-08-27 21:58:44 |      1 |        2 |
++--------+---------------------+--------+----------+
+2 rows in set (0.00 sec)
+
+
+
